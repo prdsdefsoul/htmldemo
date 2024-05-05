@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collapsible Directory Example</title>
+<style>   
+    /* 在这里添加CSS来美化目录 */
+    .directory-list, .sub-list {
+        list-style-type: none; /* 去除列表前的默认符号 */
+        padding-left: 0; /* 移除列表前的缩进 */
+        margin: 0; /* 移除ul的默认外边距 */
+    }
+    
+    .directory-list > li, .sub-list li {
+        border-bottom: 1px solid #ccc; /* 灰色横线 */
+        margin-top: 15px; /* 上方间距 */
+        margin-bottom: 15px; /* 增加底部间距 */
+        position: relative; /* 设置为相对定位以便在前面添加三角形 */
+        cursor: pointer; /* 显示手形光标表示可点击 */
+        padding-bottom: 10px; /* 在底部增加一些内边距 */
+    }
+    
+    /* 删除最后一个列表项的底部边框 */
+    .directory-list > li:last-child, .sub-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .directory-list > li > span:before {
+        content: "▶"; /* 设置内容为朝右的三角形 */
+        margin-right: 5px; /* 添加符号和文本之间的间距 */
+        font-size: 0.8em; /* 调整三角形大小 */
+        line-height: 1; /* 设置行高以使三角形垂直居中 */
+    }
+    
+    .sub-list {
+        display: none; /* 默认隐藏子列表 */
+        margin-left: 20px; /* 子列表的缩进 */
+        list-style-type: none; /* 子列表不显示列表符号 */
+        padding-left: 15px; /* 子列表的内边距 */
+    }
+    
+    /* 当父列表项被展开时，更改三角形方向 */
+    .expanded > span:before {
+        content: "▼"; /* 设置内容为朝下的三角形 */
+    }
+    
+    /* 当父列表项被展开时，显示子列表 */
+    .expanded .sub-list {
+        display: block;
+    }
+  </style>
+</head>
+<body>
+
+<ul class="directory-list">
+  <li>
+    <span onclick="toggleSublist(this.parentElement)">Hik-Partner Pro</span>
+    <ul class="sub-list">
+      <li>Target Audience</li>
+      <li>Entities in Hik-Partner Pro</li>
+      <li>Running Environment</li>
+      <li>Function Availability for Different Regions</li>
+      <li>Get Started with Hik-Partner Pro</li>
+    </ul>
+  </li>
+  <li>
+    <span onclick="toggleSublist(this.parentElement)">Company Management Guide</span>
+    <ul class="sub-list">
+      <li>Authenticate Company</li>
+      <li>Merge Your Company with Another Company</li>
+      <li>Purchase Employee Accounts and Add Employees</li>
+      <li>Purchase and Set Up Co-Branding</li>
+    </ul>
+  </li>
+  <li>
+    <span onclick="toggleSublist(this.parentElement)">Site & Device Management</span>
+    <ul class="sub-list">
+      <li>How to Use SADP Tool for On-Site Configuration</li>
+      <li>Collaborate with an ISP/MSP on Device Installation/Maintenance</li>
+      <li>Hand Over Site & Devices (Sharing/Transferring/Team Site)</li>
+      <li>ARC Service Guide</li>
+      <li>Cloud Storage Configuration Guide</li>
+      <li>IoT Data Service Guide</li>
+      <li>HCC&HCT Service Guide</li>
+      <li>How to Get and Accept a Device Management Invitation from Your Customer</li>
+      <li>How to Find Device Serial Number and Verification Code</li>
+      <li>Encoding Device Management</li>
+      <li>Security Control Device Management</li>
+      <li>Network Device Management</li>
+      <li>Healthcare Radar Management</li>
+      <li>Device Password Reset Guide</li>
+      <li>Device Upgrade Guide</li>
+    </ul>
+  </li>
+  <li>
+    <span onclick="toggleSublist(this.parentElement)">Health Monitoring Service and Remote Maintenance Pro Service</span>
+    <ul class="sub-list">
+      <li>Purchase and Activate Health Monitoring Service</li>
+      <li>Purchase and Activate Remote Maintenance Pro Service</li>
+      <li>Device Linkage Rule Configuration Guide</li>
+      <li>Device Exception Rule Configuration Guide</li>
+      <li>Device Health Status Overview</li>
+      <li>Export Health Check Report or Set up Scheduled Report</li>
+      <li>Create Maintenance Quotation</li>
+      <li>Troubleshooting Guide</li>
+    </ul>
+  </li>
+  <li>
+    <span onclick="toggleSublist(this.parentElement)">Product Selection, Project Creation, Quotations, and Order Placement</span>
+    <ul class="sub-list">
+      <li>Product Selection Guide</li>
+      <li>Product Quotation Guide</li>
+      <li>Project Creation Guide</li>
+      <li>Order Placement Guide for Products</li>
+    </ul>
+  </li>
+  <li>
+    <span onclick="toggleSublist(this.parentElement)">Support</span>
+    <ul class="sub-list">
+      <li>Submit Support Case and Case Management</li>
+      <li>Return Defected Products for Exchange or Repair (RMA)</li>
+    </ul>
+  </li>
+  <li>
+    <span onclick="toggleSublist(this.parentElement)">Incentives</span>
+    <ul class="sub-list">
+      <li>Partner Program Joining Guide</li>
+      <li>Rebates Earning Guide</li>
+      <li>Compensation Application Guide</li>
+      <li>Reward Points Earning Guide</li>
+      <li>Claim and Verify eCoupons</li>
+      <li>Sell-Out Promotions</li>
+    </ul>
+  </li>
+</ul>
+
+<script>
+  // JavaScript 函数用于切换子列表的显示
+  function toggleSublist(element) {
+    // 检查点击的元素是否已经展开
+    if (element.classList.contains('expanded')) {
+      // 如果已经展开，则移除展开类来隐藏子列表
+      element.classList.remove('expanded');
+    } else {
+      // 如果未展开，则添加展开类来显示子列表
+      element.classList.add('expanded');
+    }
+  }
+</script>
+
+</body>
+</html>   
